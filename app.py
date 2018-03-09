@@ -15,7 +15,8 @@ app = dash.Dash()
 #Allow components generated in callbacks to be used in future callbacks (for Tabs)
 app.config['suppress_callback_exceptions'] = True
 
-external_css = ["https://rawgit.com/benlevine13/DashStylesheets/master/default.css"]
+external_css = ["http://mhco.dd:8443/default.css"]
+#external_css = ["https://rawgit.com/benlevine13/DashStylesheets/master/default.css"]
 
 
 for css in external_css:
@@ -55,8 +56,8 @@ app.layout = html.Div(
                 className='eight columns',
             ),
             ],
-            className='row',
-            style = {'margin-bottom': '5px'}
+            className='row wizard-title',
+            # style = {'margin-bottom': '5px'}
         ),
         html.Div(
             [
@@ -67,9 +68,9 @@ app.layout = html.Div(
                 value = 'Sallen-Key Lowpass'
                 ),
             ],
-            className='row',
-            style={'margin-bottom': '5px',
-                   'margin-top': '15px'}
+            className='row topology',
+            # style={'margin-bottom': '5px',
+            #        'margin-top': '15px'}
 
         ),
         html.Div(
@@ -96,10 +97,10 @@ app.layout = html.Div(
                         ),
                         html.Div(id='freq-output-container', style={'margin-top': 20})
                     ],
-                    className='five columns',
-                    style={'margin-left': '10px',
-                           'margin-bottom': '5px',
-                           'margin-top': '5px'}
+                    className='five columns filters',
+                    # style={'margin-left': '10px',
+                    #        'margin-bottom': '5px',
+                    #        'margin-top': '5px'}
                 ),
                 html.Div(
                     [
@@ -111,32 +112,32 @@ app.layout = html.Div(
                                 {'label': 'Textbook Design Equations', 'value': 'equations'}
                             ],
                             value='ML',
-                            labelStyle={'display': 'inline-block'}
+                            labelStyle={'display': ''}
                         ),
                         html.Div(id='param-type-output',
-                                 style={'margin-bottom': '10px', 'margin-right': '10px'}),
+                                  style={'margin-bottom': '10px', 'margin-right': '10px'}),
                     ],
-                    className='five columns',
+                    className='five columns param-values',
                     style = {'margin-bottom': '5px',
-                             'margin-top': '5px',
-                             'float': 'right',
-                             'margin-right': '10px'}
+                              'margin-top': '5px',
+                              'float': 'right',
+                              'margin-right': '10px'}
                 ),
             ],
-            className='row'
+            className='row filters-param-values'
         ),
 
         html.Div(
             [
                 html.Button('Launch Simulation', id='sim-button', style={'display': 'block','margin-left': 'auto', 'margin-right': 'auto'}),
-                html.Div(id='measure-display', style={'display':'block','margin-left': 'auto', 'margin-right': 'auto', 'text-align': 'center'}, children='Launch a simulation to generate results!',),
+                #html.Div(id='measure-display', style={'display':'block','margin-left': 'auto', 'margin-right': 'auto', 'text-align': 'center'}, children='Launch a simulation to generate results!',),
 
                 # Hidden Div for Data Storage
                 html.Div(id='bode-value', style = {'display': 'none'})
             ],
             style={'background-color': 'white',
                    'border-radius': '5px',
-                   'border': 'thin solid rgb(240, 240, 240)',
+                   #'border': 'thin solid rgb(240, 240, 240)',
                    'margin-bottom': '10px',
                    'margin-left': '50%',
                    'transform': 'translateX(-50%)',
@@ -151,23 +152,23 @@ app.layout = html.Div(
                         html.Iframe(
                             id = 'schematic-viewer',
                             src = 'https://systemvision.com/node/219901',
-                            height='450',
+                            #height='450',
                             width = '100%'
                         )
                     ],
                     className='eight columns',
-                    style={'margin-top': '20'}
+                    # style={'margin-top': '20'}
                 ),
                 html.Div(
                     [
                         dcc.Graph(id = 'bode-gain')
                     ],
                     className='four columns',
-                    style={'margin-top': '20',
-                           'border': 'thin solid rgb(240, 240, 240)'}
+                    # style={'margin-top': '20',
+                    #        'border': 'thin solid rgb(240, 240, 240)'}
                 )
             ],
-            className='row'
+            className='row app'
         ),
 
         html.Div(
@@ -176,31 +177,31 @@ app.layout = html.Div(
                     children='Run a simulation to also search for relevant parts.',
                     id='part-search',
                     className='four columns',
-                    style={'margin-bottom': '10px'}
+                    # style={'margin-bottom': '10px'}
                 ),
                 html.Div(
                     [
                         html.P('Comprehensive advanced metrics')
                     ],
                     className='four columns',
-                    style={'margin-bottom': '10px'}
+                    # style={'margin-bottom': '10px'}
                 ),
                 html.Div(
                     [
                         dcc.Graph(id = 'bode-phase')
                     ],
                     className='four columns',
-                    style={'margin-bottom': '10px',
-                           'border': 'thin solid rgb(240, 240, 240)'}
+                    # style={'margin-bottom': '10px',
+                    #        'border': 'thin solid rgb(240, 240, 240)'}
                 )
             ],
-            className='row'
+            className='row results'
         )
     ],
     className='ten columns offset-by-one',
     style={'background-color': 'white',
            'border-radius': '5px',
-           'box-shadow': 'rgb(240, 240, 240) 5px 5px 5px 0px',
+           # 'box-shadow': 'rgb(240, 240, 240) 5px 5px 5px 0px',
            'border': 'thin solid rgb(240, 240, 240)',
            'margin-bottom': '100px'}
 )
@@ -297,7 +298,7 @@ def display_choices(value):
         return [
             html.Button('Predict Parameter', id='param-button'),
             html.Div(id='ml-data', style={'display': 'none'}),
-            html.P(id='ml-prediction', children='Click button to generate prediction', style={'float': 'right'})
+            #html.P(id='ml-prediction', children='Click button to generate prediction', style={'float': 'right'})
         ]
     elif value == 'equations':
         return [html.Div(id = 'equation-objs')]
@@ -693,6 +694,7 @@ def on_click(n_clicks, design, input, select):
                 paramInputs = paramInputs.values
                 designID, revisionID = SvApi.FindDesign(designObjs, design)
                 simDesign = SvApi.GetDesign(designID, revisionID)
+                print (simDesign.json())
                 simDesign = SvApi.CreateRevision(simDesign)
                 simDesign = simDesign.json()
                 for i in range (0,len(paramInputs)):
