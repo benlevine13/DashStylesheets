@@ -16,7 +16,7 @@ app = dash.Dash()
 app.config['suppress_callback_exceptions'] = True
 
 external_css = ["http://mhco.dd:8443/default.css"]
-#external_css = ["https://rawgit.com/benlevine13/DashStylesheets/master/default.css"]
+external_css = ["https://rawgit.com/benlevine13/DashStylesheets/master/default.css"]
 
 
 for css in external_css:
@@ -195,7 +195,7 @@ app.layout = html.Div(
                     #        'border': 'thin solid rgb(240, 240, 240)'}
                 )
             ],
-            className='row results'
+            className='row'
         )
     ],
     className='ten columns offset-by-one',
@@ -298,7 +298,7 @@ def display_choices(value):
         return [
             html.Button('Predict Parameter', id='param-button'),
             html.Div(id='ml-data', style={'display': 'none'}),
-            #html.P(id='ml-prediction', children='Click button to generate prediction', style={'float': 'right'})
+            html.P(id='ml-prediction', children='Click button to generate prediction', style={'float': 'right'})
         ]
     elif value == 'equations':
         return [html.Div(id = 'equation-objs')]
