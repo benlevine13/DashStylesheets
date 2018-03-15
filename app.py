@@ -76,26 +76,24 @@ app.layout = html.Div(
         ),
         html.Div(
             [
-                html.Div(
-                    [
-                        html.H4('Step 2'),
-                        html.P('Specify desired filter characteristics using the sliders below:'),
-                        dcc.Slider(
-                            id='gain-slider',
-                            min=1.000001,
-                            max=1000,
-                            value=100,
-                            step=0.1,
-                            included=False
-                        ),
-                        html.Div(id='gain-output-container'),
-                        dcc.Slider(
-                            id='freq-slider',
-                            marks={i: '{}'.format(10 ** i) for i in range(6)},
-                            max=5,
-                            value=2,
-                            step=0.1,
-                            included=False
+            html.H4('Step 2'),
+            html.P('Specify desired filter characteristics using the sliders below:'),
+            dcc.Slider(
+                id='gain-slider',
+                min=1.000001,
+                max=1000,
+                value=100,
+                step=0.1,
+                included=False
+                ),
+                    html.Div(id='gain-output-container'),
+                    dcc.Slider(
+                        id='freq-slider',
+                        marks={i: '{}'.format(10 ** i) for i in range(6)},
+                        max=5,
+                        value=2,
+                        step=0.1,
+                        included=False
                         ),
                         html.Div(id='freq-output-container', style={'margin-top': 20})
                     ],
@@ -103,17 +101,17 @@ app.layout = html.Div(
                     # style={'margin-left': '10px',
                     #        'margin-bottom': '5px',
                     #        'margin-top': '5px'}
-                ),
-                html.Div(
-                    [
-                        html.H4('Step 3'),
-                        html.P('Choose your mechanism for determining parameter values (If design equations are blank, re-choose design from dropdown above):'),
-                        dcc.RadioItems(
-                            id='param-type-selector',
-                            options=[
-                                {'label': 'Machine Learning Model', 'value': 'ML'},
-                                {'label': 'Textbook Design Equations', 'value': 'equations'}
-                            ],
+        ),
+        html.Div(
+            [
+            html.H4('Step 3'),
+            html.P('Choose your mechanism for determining parameter values (If design equations are blank, re-choose design from dropdown above):'),
+            dcc.RadioItems(
+                id='param-type-selector',
+                    options=[
+                        {'label': 'Machine Learning Model', 'value': 'ML'},
+                        {'label': 'Textbook Design Equations', 'value': 'equations'}
+                        ],
                             value='ML',
                             labelStyle={'display': ''}
                         ),
@@ -125,11 +123,7 @@ app.layout = html.Div(
                               'margin-top': '5px',
                               'float': 'right',
                               'margin-right': '10px'}
-                ),
-            ],
-            className='row filters-param-values'
         ),
-
         html.Div(
             [
                 html.Button('Launch Simulation', id='sim-button', style={'display': 'block','margin-left': 'auto', 'margin-right': 'auto'}),
