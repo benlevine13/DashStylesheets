@@ -61,7 +61,8 @@ app.layout = html.Div(
         ),
         html.Div(
             [
-            html.P('Step 1. Choose a base topology:'),
+            html.H4('Step 1'),
+            html.P('Choose a base topology:'),
             dcc.Dropdown(
                 id = 'design-selector',
                 options = [{'label': i, 'value': i} for i in designs],
@@ -77,7 +78,8 @@ app.layout = html.Div(
             [
                 html.Div(
                     [
-                        html.P('Step 2. Specify desired filter characteristics using the sliders below:'),
+                        html.H4('Step 2'),
+                        html.P('Specify desired filter characteristics using the sliders below:'),
                         dcc.Slider(
                             id='gain-slider',
                             min=1.000001,
@@ -104,7 +106,8 @@ app.layout = html.Div(
                 ),
                 html.Div(
                     [
-                        html.P('Step 3. Choose your mechanism for determining parameter values (If design equations are blank, re-choose design from dropdown above):'),
+                        html.H4('Step 3'),
+                        html.P('Choose your mechanism for determining parameter values (If design equations are blank, re-choose design from dropdown above):'),
                         dcc.RadioItems(
                             id='param-type-selector',
                             options=[
