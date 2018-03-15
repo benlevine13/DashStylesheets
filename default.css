@@ -697,6 +697,10 @@ on small devices, paste the mobile query code up in the buttons section and styl
 there.
 */
 
+.svg-container {
+    font-family: "Carter Regular";
+}
+
 .ten.columns.offset-by-one {
     width: 100%;
     margin: 0px;
@@ -849,6 +853,12 @@ div.row p {
 
 #schematic-viewer {
     height: 700px;
+}
+
+#bode-gain,
+#bode-phase {
+    border: 1px solid #96c8ff;
+    padding: 0 0 2% 2%;
 }
 
 @media all and (max-width: 1920px) {

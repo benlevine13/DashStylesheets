@@ -16,7 +16,7 @@ app = dash.Dash()
 app.config['suppress_callback_exceptions'] = True
 
 external_css = ["http://mhco.dd:8443/default.css"]
-external_css = ["https://rawgit.com/benlevine13/DashStylesheets/master/default.css"]
+#external_css = ["https://rawgit.com/benlevine13/DashStylesheets/master/default.css"]
 
 
 for css in external_css:
@@ -248,19 +248,55 @@ def update_graph(input):
     dff = pd.read_json(input[0], orient='split')
     data = [ go.Scatter(
         x = dff['XData'],
-        y = dff['YData']
+        y = dff['YData'],
+        line = dict(
+            color = 'rgb(0,110,190)',
+            width=4
+        ),
+        marker = dict(
+            color = 'rgb(150,200,255)',
+            size=15
+        )
     )]
     layout = go.Layout(
+        title= 'Gain',
+        titlefont = dict (
+            family = 'AV Roman',
+            size=14
+        ),
         xaxis= dict(
             type = 'log',
             autorange=True,
-            title = 'Frequency (Hz)'
+            title = 'Frequency (Hz)',
+            zerolinewidth = 3,
+            gridwidth = 1,
+            zerolinecolor = 'rgb(61, 67, 75)',
+            gridcolor = 'rgb(221,221,221)'
         ),
         yaxis = dict(
             autorange=True,
-            title = 'Gain (dB)'
-        )
-    )
+            title = 'Gain (dB)',
+            zerolinewidth=3,
+            gridwidth=1,
+            zerolinecolor='rgb(61, 67, 75)',
+            gridcolor='rgb(221,221,221)'
+        ),
+        images = dict (
+            opacity = 1,
+            xref = 'paper',
+            yref = 'paper',
+            sizex = 0.2,
+            sizey = 0.2,
+            source = "data:image/png;base64,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",
+            y = 1.1,
+            x = 0
+        ),
+        font = dict(
+            size=18,
+            family = 'Carter Regular'
+        ))
+
+
     fig = go.Figure(data=data, layout=layout)
     return fig
 
@@ -273,9 +309,18 @@ def update_graph(input):
     dff = pd.read_json(input[1], orient='split')
     data = [ go.Scatter(
         x = dff['XData'],
-        y = dff['YData']
+        y = dff['YData'],
+        line = dict(
+            color='rgb(0,110,190)',
+            width=4
+        )
     )]
     layout = go.Layout(
+        title = 'Phase',
+        titlefont = dict(
+            family='AV Roman',
+            size=18
+        ),
         xaxis= dict(
             type = 'log',
             autorange=True,
@@ -283,9 +328,17 @@ def update_graph(input):
         ),
         yaxis = dict(
             autorange=True,
-            title = 'Phase'
+            title = 'Phase',
+            zerolinewidth=3,
+            gridwidth=1,
+            zerolinecolor='rgb(61, 67, 75)',
+            gridcolor='rgb(221,221,221)'
+        ),
+        font = dict(
+            size = 14,
+            family = 'Carter Regular'
         )
-    )
+)
     fig = go.Figure(data=data, layout=layout)
     return fig
 
