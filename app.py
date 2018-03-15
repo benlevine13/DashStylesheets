@@ -49,6 +49,8 @@ schematics['Multiple Feedback Lowpass'] = 'https://systemvision.com/node/232416'
 
 app.layout = html.Div(
     [
+    html.Div (
+        [
         html.Div(
             [
             html.H1(
@@ -123,7 +125,7 @@ app.layout = html.Div(
                               'margin-top': '5px',
                               'float': 'right',
                               'margin-right': '10px'}
-        ),
+    ),
         html.Div(
             [
                 html.Button('Launch Simulation', id='sim-button', style={'display': 'block','margin-left': 'auto', 'margin-right': 'auto'}),
@@ -139,8 +141,11 @@ app.layout = html.Div(
                    'margin-left': '50%',
                    'transform': 'translateX(-50%)',
                    'margin-right': 'auto',
-                   'display': 'inline-block'}
-        ),
+                   'display': 'inline-block'})
+
+        ]
+    ),
+
 
         html.Div(
             [
@@ -193,7 +198,7 @@ app.layout = html.Div(
                 )
             ],
             className='row'
-        )
+        ),
     ],
     className='ten columns offset-by-one',
     style={'background-color': 'white',
