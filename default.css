@@ -175,7 +175,7 @@ SystemVision fonts in base 64 */
         width: 56.6666666667%;
     }
     .eight.columns {
-        width: 65.3333333333%;
+        /*  width: 65.3333333333%; */
     }
     .nine.columns {
         width: 74.0%;
@@ -287,7 +287,7 @@ body {
     transition: all ease-out.2s;
     background-size: 100%;
     margin: 0;
-    border-top: 6px solid #96c8ff;
+    border-top: 10px solid #96c8ff;
     /*   background-image: url("https://www.eletimes.com/wp-content/uploads/2017/12/PCB.jpg"); */
 }
 
@@ -311,6 +311,7 @@ h1 {
     /*   line-height: 1.2; */
     letter-spacing: 0;
     margin-bottom: 2rem;
+    width: 100%;
 }
 
 h2 {
@@ -330,11 +331,20 @@ h3 {
 }
 
 h4 {
-    font-size: 2.6rem;
-    line-height: 1.35;
-    letter-spacing: -.08rem;
-    margin-bottom: 1.2rem;
-    margin-top: 1.2rem;
+    font-family: "AV Roman";
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    background: #96c8ff;
+    display: inline-block;
+    padding: 3px 6px;
+    font-size: 0.9em;
+    float: left;
+    margin: 0px 14px 14px 0;
+}
+
+.param-values h4 {
+    margin-bottom: 30px;
 }
 
 h5 {
@@ -355,6 +365,7 @@ h6 {
 
 p {
     margin-top: 0;
+    color: #3d434b;
 }
 
 :focus,
@@ -705,26 +716,21 @@ there.
     width: 100%;
     margin: 0px;
     border: none !important;
-    padding: 2%;
     transition: all 0.2 ease-out;
-    background-position-x: 2.15%;
+    background-position-x: 1.65%;
     background-position-y: 1%;
     background-repeat: no-repeat;
     background-image: url('data:image/png;base64,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')
 }
 
-div.row p {
-    font-family: "AV Medium";
-    color: #003153;
-    font-size: 1.1em;
-    padding-bottom: 12px;
+.topology {
+    width: 100%;
+    padding: 0.5% 0%;
 }
 
-.topology {
-    width: 22%;
-    float: left;
-    padding: 0.5% 0%;
-    border-top: 3px solid black;
+.topology p {
+    margin: 0;
+    padding: 0;
 }
 
 .topology .Select--single > .Select-control .Select-value {
@@ -748,15 +754,15 @@ div.row p {
 
 .five.columns.filters,
 .five.columns.param-values {
-    padding: 0.5% 0%;
-    border-top: 3px solid;
-    width: 48%;
+    padding: 10% 0%;
+    width: 100%;
     margin: 0 !important;
 }
 
 .app .eight.columns {
-    width: 60%;
-    float: left;
+    width: 100%;
+    float: right;
+    border-bottom: 1px solid #666;
 }
 
 .app .four.columns {
@@ -765,7 +771,9 @@ div.row p {
 }
 
 .app {
-    width: 100%;
+    width: 71%;
+    float: right;
+    margin-top: -10px;
 }
 
 .row.results {
@@ -790,9 +798,9 @@ div.row p {
     margin-right: 10px;
 }
 
-.row .rc-slider {
-    width: 96%;
-    margin: 0 2%;
+.rc-slider {
+    width: 96% !important;
+    margin: 0 2% !important;
 }
 
 .rc-slider-handle {
@@ -820,6 +828,15 @@ div.row p {
     padding: 16px 0 0;
 }
 
+#react-entry-point {}
+
+#react-entry-point ._dash-loading {}
+
+.settings-container {
+    width: 25%;
+    float: left;
+    padding: 2.125% 0 0 1.5%;
+}
 
 /* 
 #equation-objs
@@ -861,11 +878,12 @@ div.row p {
     padding: 0 0 2% 2%;
 }
 
-@media all and (max-width: 1920px) {
-    h1 {
-        font-size: 2em;
-    }
+h1 {
+    font-size: 1.8em;
+    line-height: 135%;
 }
+
+@media all and (max-width: 1920px) {}
 
 @media all and (max-width: 1690px) {
     ...

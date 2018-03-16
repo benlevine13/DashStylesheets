@@ -143,9 +143,9 @@ app.layout = html.Div(
                    'margin-right': 'auto',
                    'display': 'inline-block'})
 
-        ]
+        ],
+        className='settings-container'
     ),
-
 
         html.Div(
             [
@@ -353,7 +353,7 @@ def display_choices(value):
         return [
             html.Button('Predict Parameter', id='param-button'),
             html.Div(id='ml-data', style={'display': 'none'}),
-            html.P(id='ml-prediction', children='Click button to generate prediction', style={'float': 'right'})
+            # html.P(id='ml-prediction', children='Click button to generate prediction', style={'float': 'right'})
         ]
     elif value == 'equations':
         return [html.Div(id = 'equation-objs')]
